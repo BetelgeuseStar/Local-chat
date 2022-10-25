@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux'
+import './styles/App.scss';
+import AuthPage from './pages/AuthPage';
+import LobbyPage from './pages/LobbyPage';
+import RoomPage from './pages/RoomPage';
+import type { RootState } from './store'
+import { chatActions } from './redux/chat.slice';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const dispatch = useDispatch()
+	useEffect(() => {
+		window.addEventListener('beforeunload', () => {
+			dispatch(chatActions.exitUser())
+		});
+	}, [])
+	useEffect(() => {
+		window.addEventListener('storage', () => {
+			dispatch(chatActions.updateStateFromLS())
+		})
+	}, [])
+
+	const auth = useSelector((state: RootState) => state.chat.auth)
+	if (auth) {
+		return (
+			<div className='app'>
+				<Routes>
+					<Route path='/lobby' element={<LobbyPage />} />
+					<Route path='/room/:name' element={<RoomPage />} />
+					<Route path="*" element={<Navigate to="/lobby" />} />
+				</Routes>
+			</div>
+		)
+	} else {
+		return (
+			<div className='app'>
+				<Routes>
+					<Route path='/auth' element={<AuthPage />} />
+					<Route path="*" element={<Navigate to="/auth" />} />
+				</Routes>
+			</div>
+		)
+	}
+
 }
 
 export default App;

@@ -1,0 +1,718 @@
+@import 'nullstyle';
+
+.app {
+	background: linear-gradient(rgb(58, 221, 58), rgb(131, 196, 131));
+	height: 100vh;
+	word-wrap: break-word;
+}
+
+.link {
+	color: black;
+}
+
+.error {
+	font-size: 18px;
+	color: red;
+	height: 20px;
+	text-align: center;
+}
+
+.btn {
+	border: 1px solid black;
+	border-radius: 10px;
+	font-size: 20px;
+	text-align: center;
+	padding: 20px;
+	cursor: pointer;
+	user-select: none;
+	background: linear-gradient(rgba(114, 245, 114), rgb(81, 170, 81));
+	&:hover {
+		background: linear-gradient(rgb(46, 226, 46), rgb(32, 112, 32));
+	}
+	&:active {
+		background: linear-gradient(rgb(45, 190, 45), rgb(23, 80, 23));
+	}
+}
+
+
+.auth {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.window {
+	&__label {
+		display: block;
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+
+	&__input {
+		border: 1px solid black;
+		border-radius: 10px;
+		overflow: hidden;
+		margin-bottom: 10px;
+		font-size: 20px;
+		padding: 2px 10px;
+	}
+}
+
+.auth-window {
+	background-color: WhiteSmoke;
+	border: 1px solid black;
+	border-radius: 20px;
+	width: 500px;
+	padding: 30px 30px 15px 30px;
+	box-shadow: 1px 1px 10px black;
+	margin-bottom: 10vh;
+	@media(max-width: 375px) {
+		height: 100vh;
+		width: 100vh;
+		margin-bottom: 0;
+		border-radius: 0;
+		padding-top: 20vh;
+		border: none;
+	}
+	&__title {
+		font-size: 28px;
+		text-align: center;
+		padding-bottom: 40px;
+		@media(max-width: 375px) {
+			font-size: 24px;
+		}
+	}
+
+	&__form {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&__inputs {
+		margin-bottom: 30px;
+	}
+
+	&__btn {
+		width: 200px;
+		height: 60px;
+		margin-bottom: 10px;
+		&:active {
+			font-size: 19px;
+			border: 2px solid black;
+			padding-bottom: 9px;
+		}
+	}
+	&__error {
+	
+	}
+}
+
+.lobby {
+	display: flex;
+	justify-content: center;
+}
+
+.lobby-window {
+	background-color: rgba(245, 245, 245, 0.884);
+	height: 100vh;
+	width: 80vw;
+	min-width: 700px;
+	display: flex;
+	border: 2px solid green;
+	box-shadow: 1px 1px 10px black;
+	@media(max-width: 1200px) {
+			width: 100vw;
+	}
+	&__interface {
+		width: 20%;
+		border-right: 2px solid green;
+		padding: 10px;
+	}
+
+	&__rooms {
+		width: 60%;
+		padding: 10px;
+	}
+
+	&__users {
+	}
+}
+
+.interface {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	&__user-info {}
+
+	&__user {
+		font-size: 20px;
+		color: green;
+		margin-bottom: 10px;
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+	}
+
+	&__username {
+		color: black;
+		word-wrap: break-word;
+	}
+	&__exit-btn {
+		background: linear-gradient(rgb(245, 114, 114), rgb(170, 81, 81));
+		padding: 10px;
+		display: inline-block;
+		margin-bottom: 10px;
+		font-size: 16px;
+		&:hover {
+			background: linear-gradient(rgb(226, 46, 46), rgb(112, 32, 32));
+		}
+		&:active {
+			font-size: 16px;
+			border: 2px solid black;
+			padding: 9px;
+			background: linear-gradient(rgb(190, 45, 45), rgb(80, 23, 23));
+		}
+		@media(max-width: 1200px) {
+			font-size: 14px;
+			&:active {
+				font-size: 14px;
+			}
+		}
+	}
+
+	&__buttons {}
+
+	&__btn {
+		padding: 10px;
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+		&:active {
+			font-size: 19px;
+			border: 2px solid black;
+			padding-bottom: 9px;
+		}
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+}
+
+.lobby-rooms {
+
+	&__list {}
+
+	&__room {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		user-select: none;
+		&:hover {
+			background-color: rgb(60, 192, 60);
+		}
+		&:active {
+			background-color: rgb(50, 150, 50);
+		}
+		&.active {
+			background-color: rgb(24, 151, 24);
+		}
+	}
+
+	&__room-name {
+		font-size: 20px;
+		width: 200px;
+		padding: 5px;
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+	}
+
+	&__room-descr {
+		padding: 5px;
+		flex: 1 1;
+		font-size: 18px;
+		font-style: italic;
+		@media(max-width: 1200px) {
+			font-size: 17px;
+		}
+	}
+
+	&__room-users-count {
+		padding: 5px;
+		width: 100px;
+		text-align: right;
+		font-size: 20px;
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+	}
+}
+
+.users {
+	display: flex;
+	flex-direction: column;
+	border-left: 2px solid green;
+	width: 20%;
+	&__online {
+		flex: 1 1;
+		border-bottom: 2px solid green;
+		padding: 10px 0;
+	}
+
+	&__offline {
+		flex: 1 1;
+		padding: 10px 0;
+	}
+
+	&__title {
+		font-size: 18px;
+		text-align: center;
+		margin-bottom: 10px;
+		color: green;
+		font-style: italic;
+	}
+
+	&__online-list {
+		padding: 10px;
+		border-top: 2px solid green;
+		max-height: 45vh;
+		overflow-y: hidden;
+	}
+
+	&__offline-list {
+		padding: 10px;
+		border-top: 2px solid green;
+		max-height: 45vh;
+		overflow-y: hidden;
+	}
+
+	&__user {
+		&_online {
+			word-wrap: break-word;
+			font-size: 18px;
+			margin-bottom: 5px;
+			&::before {
+				content: '';
+				float: left;
+				display: block;
+				height: 10px;
+				width: 10px;
+				border-radius: 50%;
+				margin:5px 5px 0 0;
+				background-color: green;
+			}
+			@media(max-width: 1200px) {
+				font-size: 16px;
+				&::before {
+					position: relative;
+					bottom: 1px;
+					height: 8px;
+					width: 8px;
+					padding-bottom: 2px;
+				}
+			}
+}
+
+		&_offline {
+			word-wrap: break-word;
+			font-size: 18px;
+			opacity: 0.8;
+			margin-bottom: 5px;
+			@media(max-width: 1200px) {
+				font-size: 16px;
+			}
+			&::before {
+				content: '';
+				float: left;
+				display: block;
+				height: 10px;
+				width: 10px;
+				border-radius: 50%;
+				margin: 5px 5px 0 0;
+				background-color: rgba(0, 0, 0, 0.7);
+			}
+			@media(max-width: 1200px) {
+				font-size: 16px;
+				&::before {
+					position: relative;
+					bottom: 1px;
+					height: 8px;
+					width: 8px;
+					padding-bottom: 2px;
+				}
+			}
+		}
+	}
+}
+
+.room {
+	display: flex;
+	justify-content: center;
+}
+
+.users-in-room {
+	border-top: 2px solid green;
+	&__title {
+		padding: 10px;
+		font-size: 18px;
+		color: green;
+		font-style: italic;
+		text-align: center;
+	}
+
+	&__list {
+		padding: 10px;
+		border-top: 2px solid green;
+		max-height: 30vh;
+		overflow-y: hidden;
+	}
+}
+
+.room-window {
+background-color: rgba(245, 245, 245, 0.884);
+	height: 100vh;
+	width: 80vw;
+	min-width: 700px;
+	display: flex;
+	border: 2px solid green;
+	box-shadow: 1px 1px 10px black;
+	@media(max-width: 1200px) {
+		width: 100vw;
+	}
+	&__interface {
+		width: 20%;
+		border-right: 2px solid green;
+	}
+
+	&__chat {
+		width: 60%;
+		padding: 10px;
+	}
+
+	&__users {
+		border-left: 2px solid green;
+		width: 20%;
+	}
+}
+
+.room-interface {
+	
+	&__user-info {
+		padding: 10px;
+	}
+
+	&__user {
+		
+	}
+
+	&__room-info {
+		flex: 1 1;
+	}
+
+	&__info {
+		padding: 10px;
+	}
+
+
+	&__name {
+		font-size: 22px;
+		margin-bottom: 5px;
+		@media(max-width: 1200px) {
+			font-size: 20px;
+		}
+	}
+
+	&__descr {
+		font-size: 20px;
+		font-style: italic;
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+	}
+
+	&__title {
+		font-size: 20px;
+		color: green;
+		margin-bottom: 5px;
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+	}
+
+	&__buttons {
+		padding: 10px;
+	}
+
+	&__btn {
+		background: linear-gradient(rgb(245, 114, 114), rgb(170, 81, 81));
+		&:hover {
+			background: linear-gradient(rgb(226, 46, 46), rgb(112, 32, 32));
+		}
+		&:active {
+			background: linear-gradient(rgb(190, 45, 45), rgb(80, 23, 23));
+		}
+	}
+
+}
+
+@keyframes citationAnimation {
+	0% {
+		fill: rgb(63, 201, 255);
+		transform: scale(1.3);
+	}
+
+	50% {
+		fill: rgb(141, 214, 243);
+		transform: scale(1);
+	}
+
+	100% {
+		fill: rgb(63, 201, 255);
+		transform: scale(1.3);
+	}
+}
+
+.chat {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	@media(max-width: 1200px) {
+		padding: 10px;
+	}
+	&__body {
+		height: 100%;
+		background-color: WhiteSmoke;
+		border-radius: 10px;
+		margin-bottom: 25px;
+		padding: 10px;
+		overflow-y: scroll;
+	}
+
+	&__message-list {}
+
+	&__message {
+		white-space: pre-wrap;
+		display: flex;
+		margin-bottom: 5px;
+		border-radius: 10px;
+		cursor: pointer;
+		&:hover {
+			background-color: rgba(148, 253, 148, 0.527);
+		}
+		&.myOwn {
+			justify-content: flex-end;
+		}
+		&.selected {
+			background-color: rgba(148, 253, 148, 0.849);
+		}
+	}
+
+	
+
+	&__message-body {
+		max-width: 70%;
+		border-radius: 10px;
+		background-color: rgba(141, 243, 141, 0.493);
+		padding: 10px;
+		font-size: 20px;
+		display: inline-block;
+		&.myOwn {
+			background-color: rgba(141, 214, 243, 0.493);
+		}
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+	}
+
+	&__message-from {
+		font-size: 20px;
+		color: rgb(4, 160, 4);
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+	}
+
+	&__interface {
+		display: flex;
+	}
+
+	&__emoji-btn {
+		cursor: pointer;
+		display: inline-block;
+		height: 40px;
+		width: 5%;
+		margin-right: 10px;
+		&:hover{
+			fill: green;
+		}
+		&:active {
+			fill: rgb(16, 58, 16);
+		}
+		@media(max-width: 1400px) {
+			width: 10%;
+		}
+	}
+
+	&__citation-btn {
+		cursor: pointer;
+		display: inline-block;
+		height: 40px;
+		width: 5%;
+		margin-right: 10px;
+		&:hover {
+			fill: rgb(0, 119, 255);
+		}
+		&:active {
+			fill: rgb(16, 58, 16);
+		}
+		&.active {
+			animation: citationAnimation 2s ease-in-out infinite;
+			&:hover {
+				fill: rgb(0, 119, 255);
+				transform: scale(1.3);
+				animation: none;
+			}
+		}
+		@media(max-width: 1400px) {
+			width: 10%;
+		}
+	}
+
+	&__input {
+		height: 40px;
+		width: 80%;
+		margin-right: 20px;
+		border-radius: 15px;
+		padding: 10px 20px;
+		font-size: 18px;
+	}
+
+	&__send-btn {
+		height: 40px;
+		font-size: 18px;
+		padding: 10px;
+		width: 15%;
+		&:active {
+			font-size: 17px;
+			border: 2px solid black;
+			padding-bottom: 9px;
+		}
+		@media(max-width: 1550px) {
+			font-size: 15px;
+		}
+		@media(max-width: 1400px) {
+			width: 20%;
+		}
+		@media(max-width: 1200px) {
+			font-size: 14px;
+			padding: 12px;
+		}
+	}
+
+	&__emoji-list {
+		position: absolute;
+		display: none;
+		flex-wrap: wrap;
+		background-color: rgba(128, 128, 128, 0.7);
+		bottom:95px;
+		left: 30px;
+		width: 340px;
+		height: 300px;
+		border-radius: 10px;
+		padding: 5px;
+		&.active {
+			display: flex;
+		}
+		@media(max-width: 1200px) {
+			width: 310px;
+			height: 250px;
+		}
+	}
+
+	&__emoji-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0px 1px 1px 0px;
+		font-size: 20px;
+		line-height: 0px;
+		cursor: pointer;
+		height: 30px;
+		width: 30px;
+		border-radius: 5px;
+		&:hover {
+			background-color: rgba(0, 128, 0, 0.712);
+		}
+		@media(max-width: 1200px) {
+			font-size: 18px;
+		}
+	}
+}
+
+
+.modal {
+	display: none;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.39);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	&.active {
+		display: flex;
+	}
+	&__window {
+		cursor: default;
+		width: 500px;
+		background-color: WhiteSmoke;
+		border: 1px solid black;
+		border-radius: 20px;
+		padding: 30px 30px 15px 30px;
+		box-shadow: 1px 1px 10px black;
+		margin-bottom: 10vh;
+
+	}
+
+	&__title {
+		font-size: 22px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	&__label {}
+
+	&__input {
+		width: 100%;
+	}
+
+	&__textarea {
+		border: 1px solid black;
+		width: 100%;
+		height: 100px;
+		resize: none;
+		border: 1px solid black;
+		border-radius: 10px;
+		overflow: hidden;
+		margin-bottom: 10px;
+		font-size: 20px;
+		padding: 2px 10px;
+	}
+
+	&__btn {
+		margin: 20px 0 15px 0;
+		&:active {
+			font-size: 19px;
+			border: 2px solid black;
+			padding-bottom: 19px;
+		}
+	}
+}
+
